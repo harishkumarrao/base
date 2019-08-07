@@ -131,32 +131,21 @@ padding-top: 2px;
             }
         }
 
-        .main .page-header {
-            margin-top: 0;
-        }
+         .content-header {
+    font-size: 16px;
+    color: #003359;
+    font-weight: bold;
+    margin-bottom: 10px;
+    background-color: whitesmoke;
+    padding: 2px 4px;
+}
 
-
-        /*
-        * Placeholder dashboard ideas
-        */
-
-        .placeholders {
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .placeholders h4 {
-            margin-bottom: 0;
-        }
-
-        .placeholder {
-            margin-bottom: 20px;
-        }
-
-        .placeholder img {
-            display: inline-block;
-            border-radius: 50%;
-        }
+.content-sub-header {
+    color: #003359;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 2px 4px;
+}
     </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -199,7 +188,7 @@ padding-top: 2px;
             <div class="sidebar">
                 <ul class="nav nav-sidebar">
                     <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Reports</a></li>
+                    <li><a href="#Reports">Reports</a></li>
                     <li><a href="#">Analytics</a></li>
                     <li><a href="#">Export</a></li>
                 </ul>
@@ -219,6 +208,39 @@ padding-top: 2px;
 
             <div class="col-sm-12 main">
                 <div class="row">
+                        <div class="row" id="graphic_board">
+                                <div class="col-md-2">
+                                   <p><b>graphic board</b></p>
+                                </div>
+                                <div class="col-md-3">
+                                   <p><i>Grafikkarte</i></p>
+                                </div>
+                                <div class="col-md-7">
+                                   <p>Some short description here ...</p>
+                                </div>
+                             </div>
+
+                             <form id="searchForm" action="javascript:search();"> <div class="input-group"> <button id="go" class="btn btn-default" type="button" onclick="document.getElementById('searchForm').submit(); return false;"> </button> <input type="text" id="searchItem" class="form-control" placeholder="Suchbegriff"> </div> </form>
+                             <script>
+                                    function search() {
+                                     
+                                       var name = document.getElementById("searchForm").elements["searchItem"].value;
+                                       var pattern = name.toLowerCase();
+                                       var targetId = "";
+                                     
+                                       var divs = document.getElementsByClassName("col-md-2");
+                                       for (var i = 0; i < divs.length; i++) {
+                                          var para = divs[i].getElementsByTagName("p");
+                                          var index = para[0].innerText.toLowerCase().indexOf(pattern);
+                                          if (index != -1) {
+                                             targetId = divs[i].parentNode.id;
+                                             document.getElementById(targetId).scrollIntoView();
+                                             break;
+                                          }
+                                       }  
+                                    }
+                                    </script>
+                                    
                     <div class="content-header">Dashboard</div>
                     <div class="content-sub-header">Section title</div>
                     <div class="table-responsive">
@@ -348,6 +370,67 @@ padding-top: 2px;
                             </tbody>
                         </table>
                     </div>
+                    <ul class="content-list">
+                            <li>asas</li>
+                            <li>asas</li>
+                            <li>asas</li>
+                    </ul>
+                    <img class="content-image" src=""/>
+                    <p class="content-details">
+                            The <i>eCTD</i> system is designed for Pharmaceutical organizations who wish to electronically submit applications using the electronic Common Technical Document standard, to various regulatory bodies. The eCTD system produces eCTD-compliant drug submissions.
+                    </p>
+                    <p class="content-details">
+                        <span class="content-bold">Note:</span> system is designed for Pharmaceutical organizations who wish to electronically submit applications using the electronic Common Technical Document standard, to various regulatory bodies. The eCTD system produces eCTD-compliant drug submissions.
+                    </p>
+                    <div class="content-header" id="Reports">reports</div>
+                    <ul class="content-list">
+                            <li>asas</li>
+                            <li>asas</li>
+                            <li>asas</li>
+                    </ul>
+                    <img class="content-image" src=""/>
+                    <p class="content-details">
+                            The <i>eCTD</i> system is designed for Pharmaceutical organizations who wish to electronically submit applications using the electronic Common Technical Document standard, to various regulatory bodies. The eCTD system produces eCTD-compliant drug submissions.
+                    </p>
+                    <p class="content-details">
+                        <span class="content-bold">Note:</span> system is designed for Pharmaceutical organizations who wish to electronically submit applications using the electronic Common Technical Document standard, to various regulatory bodies. The eCTD system produces eCTD-compliant drug submissions.
+                    </p>
+                    <ul class="content-list">
+                            <li>asas</li>
+                            <li>asas</li>
+                            <li>asas</li>
+                    </ul>
+                    <img class="content-image" src=""/>
+                    <p class="content-details">
+                            The <i>eCTD</i> system is designed for Pharmaceutical organizations who wish to electronically submit applications using the electronic Common Technical Document standard, to various regulatory bodies. The eCTD system produces eCTD-compliant drug submissions.
+                    </p>
+                    <p class="content-details">
+                        <span class="content-bold">Note:</span> system is designed for Pharmaceutical organizations who wish to electronically submit applications using the electronic Common Technical Document standard, to various regulatory bodies. The eCTD system produces eCTD-compliant drug submissions.
+                    </p>
+                    <ul class="content-list">
+                            <li>asas</li>
+                            <li>asas</li>
+                            <li>asas</li>
+                    </ul>
+                    <img class="content-image" src=""/>
+                    <p class="content-details">
+                            The <i>eCTD</i> system is designed for Pharmaceutical organizations who wish to electronically submit applications using the electronic Common Technical Document standard, to various regulatory bodies. The eCTD system produces eCTD-compliant drug submissions.
+                    </p>
+                    <p class="content-details">
+                        <span class="content-bold">Note:</span> system is designed for Pharmaceutical organizations who wish to electronically submit applications using the electronic Common Technical Document standard, to various regulatory bodies. The eCTD system produces eCTD-compliant drug submissions.
+                    </p>
+                    <ul class="content-list">
+                            <li>asas</li>
+                            <li>asas</li>
+                            <li>asas</li>
+                    </ul>
+                    <img class="content-image" src=""/>
+                    <p class="content-details">
+                            The <i>eCTD</i> system is designed for Pharmaceutical organizations who wish to electronically submit applications using the electronic Common Technical Document standard, to various regulatory bodies. The eCTD system produces eCTD-compliant drug submissions.
+                    </p>
+                    <p class="content-details">
+                        <span class="content-bold">Note:</span> system is designed for Pharmaceutical organizations who wish to electronically submit applications using the electronic Common Technical Document standard, to various regulatory bodies. The eCTD system produces eCTD-compliant drug submissions.
+                    </p>
                     <ul class="content-list">
                             <li>asas</li>
                             <li>asas</li>
