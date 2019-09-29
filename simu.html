@@ -1,0 +1,140 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PharmaREADY Help Page">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>Help Page | PharmaREADY</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+		
+.sim-select, .input-text, .input-num {
+    width: 100%;
+}
+
+.input-num {
+    text-align: right;
+}
+
+.sim-select {
+    padding: 4px;
+}
+
+.labeltext {
+    width: 165px;
+    padding-top: 5px;
+}
+
+    </style>
+</head>
+<body>
+
+		<br>
+		<div class="container-fluid">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Query Plot
+					<span class="add-query btn btn-xs btn-success glyphicon glyphicon-plus pull-right"></span>
+				</div>
+				<div class="panel-body">
+						<div class="row">
+								<div class="col-sm-12 table-responsive">
+										<table class="table table-hover" style="border: 1px solid #ccc;">
+												<thead>
+													<tr>
+														<th class="col-sm-2">Country</th>
+														<th class="col-sm-2">Site</th>
+														<th class="col-sm-2">Phase</th>
+														<th class="col-sm-2">Stop Time</th>
+														<th class="col-sm-2">Tail Probability</th>
+														<th class="col-sm-1 wd-150">Probability</th>
+														<th class="text-center"><span class="glyphicon glyphicon-remove"></span></th>
+													</tr>
+												</thead>
+												<tbody id="QueryData">
+												</tbody>
+											</table>
+								</div>
+				</div>
+			</div>
+			
+		</div>
+				
+	</br>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script>
+		var model = {};
+		var Query = [
+			{
+				'CountryName': 'India',
+				'Sites':['Chennai','Mumbai','Trichy'],
+				'Phase':[],
+				'StopTime':null,
+				'Type':'',
+				'Tail':null
+			},
+			{
+				'CountryName': 'China',
+				'Sites':['Chennai','Mumbai','Trichy'],
+				'Phase':[],
+				'StopTime':null,
+				'Type':'',
+				'Tail':null
+			}
+		]
+		render();
+		function render(){
+			var viewContainer = $('#QueryData').empty();
+			var html = '';
+			Query.forEach(function(e,ind){
+			html += '<tr class="bgcolor" id="addCountry">';
+					html += '<td class="col-sm-2"><select name="Query_' + ind + '" mode="addQuery" class="sim-select input-event" onChange="$.event.trigger({\'type\':\'input_event\',\'target\':this})">';
+					html += '<option>All</option>'
+					html += '</select></td>';
+					html += '<td class="col-sm-2"><select name="Query_' + ind + '" mode="addQuery" class="sim-select input-event" onChange="$.event.trigger({\'type\':\'input_event\',\'target\':this})">';
+							html += '<option>All</option>';
+					e.Sites.forEach(function(el,index){
+												html += '<option>'+el+'</option>';
+											})
+					html += '</select></td>';
+					html += '<td class="col-sm-2"><select name="Query_' + ind + '" mode="addQuery" class="sim-select input-event" onChange="$.event.trigger({\'type\':\'input_event\',\'target\':this})">';
+					html += '<option><input name="selector[]" id="ad_Checkbox1" class="ads_Checkbox" type="checkbox" value="1" /></option>';
+						html += '<option><input name="selector[]" id="ad_Checkbox2" class="ads_Checkbox" type="checkbox" value="2" /></option>';
+							html += '<option><input name="selector[]" id="ad_Checkbox3" class="ads_Checkbox" type="checkbox" value="3" /></option>';
+								html += '<option><input name="selector[]" id="ad_Checkbox4" class="ads_Checkbox" type="checkbox" value="4" /></option>';
+					html += '</select></td>';
+	
+					html += '<td class="col-sm-2"><input valid="numbers" name="Query_' + ind + '" mode="addQuery" class="input-num input-event" onKeyup="$.event.trigger({\'type\':\'input_event\',\'target\':this})"/></td>';
+					
+					html += '<td class="col-sm-2"><select name="Query_' + ind + '" mode="addQuery" class="sim-select input-event" onChange="$.event.trigger({\'type\':\'input_event\',\'target\':this})">';
+					html += '<option>Non-Cumulative</option><option>Cumulative</option>';
+					html += '</select></td>';
+					html += '<td class="col-sm-1 wd-150"><input valid="decimal" name="Query_' + ind + '" mode="addQuery" class="input-num input-event" onKeyup="$.event.trigger({\'type\':\'input_event\',\'target\':this})"/></td>';
+					html += '<td class="text-center"><span class="glyphicon glyphicon-remove add-item " index="' + ind + '" mode="add" onClick="$.event.trigger({\'type\':\'country_event\',\'target\':this})"></td>';
+						html += '<tr>';
+			
+							})
+			viewContainer.append(html);
+		}
+		$('.add-query').on('click',addNewQuery)
+		function addNewQuery() {
+    if (Query[0].New) {
+        Query.pop();
+    }
+    var newQuery = {
+				'CountryName': 'China',
+				'Sites':['Chennai','Mumbai','Trichy'],
+				'Phase':[],
+				'StopTime':null,
+				'Type':'',
+				'Tail':null
+			}
+    $('.add-query').addClass('hide');
+    Query.push(newQuery);
+    render();
+}
+	</script>
+</body>
+</html>

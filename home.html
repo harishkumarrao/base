@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PharmaREADY Help Page">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>Help Page | PharmaREADY</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+		.light{
+			position:absolute;
+			top:0;
+			bottom:0;
+			left:0;
+			right:0;
+			background-color:rga(0,0,0,0.5);
+		}
+		#popup{
+			position:absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			width: 650px;
+			height: 400px;
+			
+			box-shadow:0 0 7px 0 #ccc;
+		}
+		.content{
+			position:absolute;
+			top:80px;
+			bottom:80px;
+			background:#ccc;
+			background-color:#ccc;	
+			left:10px;
+			right:10px;
+		}
+    </style>
+</head>
+<body>
+	<div class="light-box"></div>
+	<div id="popup">
+		<div></div>
+		<div class="content" id="view">
+			<div class="row">
+				<label class="col-sm-2">Language</label>
+				<div class="col-sm-4">
+					<select class="form-control"></select>
+				</div>
+				<label class="col-sm-2">Lookup</label>
+				<div class="col-sm-4">
+				<select class="form-control"></select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+				</div>
+				<div class="col-sm-6">
+				</div>
+			</div>
+		</div>
+		<div></div>
+		
+	</div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script>
+		var model = {};
+		function render(){
+			var viewContainer = $('#view').empty();
+			var html = '';
+			
+			
+			
+			viewContainer.append(html);
+		}
+	</script>
+</body>
+</html>
